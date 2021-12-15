@@ -1,0 +1,24 @@
+$font-color: #555;
+
+body, html, #app, .app {
+    padding: 0;
+    margin: 0;
+    background-color: #e6e6e6;
+    text-align: center;
+}
+h1 {
+    font-size: 10em;
+}
+button {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid $font-color;
+    color: $font-color;
+    cursor: pointer;
+    outline: none;
+    width: 200px;
+}
+button:hover {
+    background-color: #000;
+    color: #fff;
+}
