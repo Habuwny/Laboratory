@@ -1,16 +1,32 @@
-require('./bootstrap');
-import Vue  from "vue";
+require("./bootstrap");
+import Vue from "vue";
 import VueRouter from "vue-router";
 
-import router from './Router'
+import router from "./Router";
 import store from "./Store";
-import App from './App.vue';
+import App from "./App.vue";
+import Validationerrors from "./Components/Shared/ValidationErrors/ValidationErrors.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
+Vue.component("v-errors", Validationerrors);
+
+window.axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (401 === error.response.status) {
+      store.dispatch("logout");
+    }
+
+    return Promise.reject(error);
+  }
+);
 
 const app = new Vue({
-    el: '#app',
-    router,
-    store,
-    components: {App}
-})
+  el: "#app",
+  router,
+  store,
+  components: { App },
+});

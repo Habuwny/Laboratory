@@ -1,6 +1,6 @@
 // @vue/component
 export default {
-    name: 'Register',
+    name: 'Navbar',
 
     components: {},
 

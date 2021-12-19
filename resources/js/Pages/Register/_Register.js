@@ -1,9 +1,8 @@
 // @vue/component
-import {Register} from '../../Components'
+import {Registering} from '../../Components'
 export default {
     name: 'Register',
-
-    components: {Register},
+    components: {Registering},
 
     mixins: [],
 
