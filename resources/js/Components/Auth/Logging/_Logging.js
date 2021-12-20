@@ -1,7 +1,7 @@
 import { logIn } from "../../../utils/auth";
 import validationErrors from "../../../Mixins/validationErrors";
 export default {
-  name: "Registering",
+  name: "Logging",
   components: {},
   mixins: [validationErrors],
 

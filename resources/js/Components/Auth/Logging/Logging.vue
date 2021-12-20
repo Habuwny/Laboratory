@@ -2,13 +2,13 @@
   <div class="Register">
     <div class="register__info__head">
       <h3 class="fw-bold">
-        Welcome to
+        Welcome Back To
         <router-link class="text-decoration-none" to="/"
           >Laboratory</router-link
         >
         Community
       </h3>
-      <h4>Register and communicate with other on laboratory</h4>
+      <h4>Log in and communicate with others on laboratory</h4>
     </div>
     <div class="register__info shadow container w-50 rounded-2">
       <div>
@@ -23,17 +23,6 @@
         /></router-link>
       </div>
       <form>
-        <div class="form-group mb-3">
-          <input
-            name="name"
-            type="text"
-            class="form-control"
-            v-model="user.name"
-            :class="[{ 'is-invalid': errorFor('name') }]"
-            placeholder="Name"
-          />
-          <v-errors :errors="errorFor('name')"></v-errors>
-        </div>
         <div class="form-group mb-3">
           <input
             name="email"
@@ -79,9 +68,9 @@
         style="z-index: 1; display: inline-block"
       >
         <span class="registerToLogin-label">
-          Already have an account?
-          <router-link :to="{ name: 'login' }" class="text-decoration-none">
-            <strong> Log in</strong></router-link
+          Doesn't have an account?
+          <router-link :to="{ name: 'register' }" class="text-decoration-none">
+            <strong> Create Account</strong></router-link
           >.
         </span>
       </div>
@@ -89,7 +78,7 @@
   </div>
 </template>
 
-<script src="./_Registering.js" lang="js"></script>
+<script src="./_Logging.js" lang="js"></script>
 
 <style scoped>
 @media screen and (max-width: 990px) {

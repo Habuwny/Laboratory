@@ -18,10 +18,14 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    loadStoredState(context) {
+      context.commit("setLoggedIn", isLoggedIn());
+    },
     async loadUser({ commit, dispatch }) {
       if (isLoggedIn()) {
         try {
           const user = (await axios.get("/user")).data;
+          console.log(user, "so User");
           commit("setUser", user);
           commit("setLoggedIn", true);
         } catch (error) {

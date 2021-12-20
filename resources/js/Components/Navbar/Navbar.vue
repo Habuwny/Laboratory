@@ -29,17 +29,33 @@
               <li class="nav-item nav-right-ul-li">
                 <router-link
                   class="nav-link fw-bold bg-transparent"
+                  v-if="!isLoggedIn"
                   :to="{ name: 'login' }"
                 >
                   Log in
+                </router-link>
+                <router-link
+                  class="nav-link fw-bold bg-transparent"
+                  v-if="isLoggedIn"
+                  :to="{ name: 'register' }"
+                >
+                  {{ user.name }}
                 </router-link>
               </li>
               <li class="nav-item">
                 <router-link
                   class="btn btn-outline-info nav-link"
+                  v-if="!isLoggedIn"
                   :to="{ name: 'register' }"
                 >
                   Create Account
+                </router-link>
+                <router-link
+                  class="btn btn-outline-info nav-link"
+                  v-if="isLoggedIn"
+                  :to="{ name: 'register' }"
+                >
+                  Create Post
                 </router-link>
               </li>
             </ul>
@@ -80,7 +96,7 @@
   /*justify-content: space-between;*/
 }
 .nav-right-ul-li {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 .nav-right-ul {
   display: flex;

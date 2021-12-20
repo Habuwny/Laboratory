@@ -1,22 +1,29 @@
 // @vue/component
+import { mapState } from "vuex";
+
 export default {
-    name: 'Navbar',
+  name: "Navbar",
 
-    components: {},
+  components: {},
 
-    mixins: [],
+  mixins: [],
 
-    props: {},
+  props: {},
 
-    data () {
-        return {}
-    },
+  data() {
+    return {};
+  },
 
-    computed: {},
+  computed: {
+    ...mapState({
+      isLoggedIn: "isLoggedIn",
+      user: "user",
+    }),
+  },
 
-    watch: {},
+  watch: {},
 
-    created () {},
+  created() {},
 
-    methods: {}
-}
+  methods: {},
+};

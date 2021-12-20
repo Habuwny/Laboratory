@@ -1,6 +1,6 @@
 import Home from "../Pages/Home.vue";
 import About from "../Pages/About.vue";
-import { Register } from "../Pages";
+import { Register, Login } from "../Pages";
 
 const routes = [
   {
@@ -19,8 +19,8 @@ const routes = [
     name: "register",
   },
   {
-    path: "/login",
-    component: Register,
+    path: "/auth/login",
+    component: Login,
     name: "login",
   },
 ];

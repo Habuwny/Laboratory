@@ -1,22 +1,33 @@
 // @vue/component
-import {Registering} from '../../Components'
+import { Registering } from "../../Components";
+import { mapState } from "vuex";
 export default {
-    name: 'Register',
-    components: {Registering},
+  name: "Register",
+  components: { Registering },
 
-    mixins: [],
+  mixins: [],
 
-    props: {},
+  props: {},
 
-    data () {
-        return {}
-    },
+  data() {
+    return {};
+  },
 
-    computed: {},
+  computed: {
+    ...mapState({
+      isLoggedIn: "isLoggedIn",
+      user: "user",
+    }),
+  },
 
-    watch: {},
+  watch: {},
 
-    created () {},
+  created() {},
 
-    methods: {}
-}
+  methods: {},
+  beforeMount() {
+    if (this.isLoggedIn) {
+      this.$router.push({ name: "home" });
+    }
+  },
+};
