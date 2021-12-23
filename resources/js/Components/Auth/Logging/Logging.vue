@@ -28,7 +28,7 @@
             name="email"
             type="email"
             class="form-control"
-            v-model="user.email"
+            v-model="email"
             :class="[{ 'is-invalid': errorFor('email') }]"
             placeholder="Email"
           />
@@ -41,7 +41,7 @@
             type="password"
             id="password"
             class="form-control"
-            v-model="user.password"
+            v-model="password"
             :class="[{ 'is-invalid': errorFor('password') }]"
             placeholder="Password"
           />
@@ -55,11 +55,12 @@
         <div class="pt-4">
           <button
             type="submit"
+            style="letter-spacing: 1.5px"
             class="rounded-pill btn btn-danger py-2 fw-bold fs-4"
             :disabled="loading"
-            @click.prevent="register"
+            @click.prevent="login"
           >
-            Sign Up
+            Continue
           </button>
         </div>
       </form>

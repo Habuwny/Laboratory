@@ -25,5 +25,16 @@ export default {
 
   created() {},
 
-  methods: {},
+  methods: {
+    async logout() {
+      try {
+        axios.post("/logout");
+        this.$store.dispatch("logout");
+        location.reload();
+      } catch (e) {
+        this.$store.dispatch("logout");
+        location.reload();
+      }
+    },
+  },
 };

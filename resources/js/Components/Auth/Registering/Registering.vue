@@ -66,7 +66,8 @@
         <div class="pt-4">
           <button
             type="submit"
-            class="rounded-pill btn btn-danger py-2 fw-bold fs-4"
+            style="letter-spacing: 1.5px"
+            class="rounded-pill btn btn-primary py-2 fw-bold fs-4"
             :disabled="loading"
             @click.prevent="register"
           >

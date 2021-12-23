@@ -9,14 +9,8 @@ export default {
 
   data() {
     return {
-      input: {
-        rounded: "pill",
-      },
-      user: {
-        name: "",
-        email: "",
-        password: "",
-      },
+      email: null,
+      password: null,
       loading: false,
     };
   },
@@ -37,23 +31,20 @@ export default {
       password.setAttribute("type", type);
       togglePassword.classList.toggle("bi-eye");
     },
-    async register() {
+    async login() {
       this.loading = true;
       this.errors = null;
 
       try {
-        console.log(this.user);
-        const res = await axios.post("/register", this.user);
-        console.log(res.status);
-
-        if (res.status === 201) {
-          console.log("register");
-          logIn();
-          this.$store.dispatch("loadUser");
-          this.$router.push({ name: "home" });
-        }
+        await axios.get("/sanctum/csrf-cookie");
+        await axios.post("/login", {
+          email: this.email,
+          password: this.password,
+        });
+        logIn();
+        this.$store.dispatch("loadUser");
+        this.$router.push({ name: "home" });
       } catch (e) {
-        console.log(e);
         this.errors = e.response && e.response.data.errors;
       }
       this.loading = false;

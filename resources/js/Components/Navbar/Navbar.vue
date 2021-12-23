@@ -34,26 +34,66 @@
                 >
                   Log in
                 </router-link>
-                <router-link
-                  class="nav-link fw-bold bg-transparent"
+                <span
+                  style="cursor: pointer"
+                  class="nav-link fw-bold nav-link-name rounded-pill"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                   v-if="isLoggedIn"
-                  :to="{ name: 'register' }"
                 >
-                  {{ user.name }}
-                </router-link>
+                  <span>
+                    <span>
+                      <img
+                        :src="'../storage/avatars/default_user.png'"
+                        class="avatar"
+                      />
+                      <span class="user-name"> {{ user.name }} </span>
+                    </span>
+                  </span>
+                </span>
+                <span class="dropdown-menu dropdown-menu-pos">
+                  <router-link
+                    class="dropdown-item fw-bolder dropdown-items"
+                    :to="{ name: 'me' }"
+                  >
+                    Settings
+                  </router-link>
+                  <router-link
+                    class="dropdown-item dropdown-items"
+                    :to="{ name: 'dashboard' }"
+                  >
+                    Dashboard
+                  </router-link>
+                  <router-link
+                    class="dropdown-item dropdown-items"
+                    :to="{ name: 'settings' }"
+                  >
+                    Create Post
+                  </router-link>
+
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item dropdown-items"
+                    href="#"
+                    @click.prevent="logout"
+                  >
+                    Log Out
+                  </a>
+                </span>
               </li>
               <li class="nav-item">
                 <router-link
-                  class="btn btn-outline-info nav-link"
+                  class="btn btn-outline-info nav-link fw-bold"
                   v-if="!isLoggedIn"
                   :to="{ name: 'register' }"
                 >
                   Create Account
                 </router-link>
                 <router-link
-                  class="btn btn-outline-info nav-link"
+                  class="btn btn-outline-info nav-link fw-bold"
                   v-if="isLoggedIn"
-                  :to="{ name: 'register' }"
+                  :to="{ name: 'new' }"
                 >
                   Create Post
                 </router-link>
@@ -116,5 +156,52 @@
 .fa-li {
   position: relative;
   left: 0;
+}
+.avatar {
+  vertical-align: middle;
+  width: 30px;
+  margin-right: 3px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+@media (min-width: 990px) {
+  .nav-link-name:hover {
+    background-color: #555555;
+  }
+}
+@media (max-width: 990px) {
+  .user-name {
+    display: none;
+  }
+  .avatar {
+    margin-right: 10px;
+  }
+  .nav-link-name:hover {
+    background-color: transparent;
+  }
+}
+.user-name {
+}
+.nav-link {
+  font-size: 1.1em;
+  letter-spacing: 0.4px;
+}
+.dropdown-menu-pos {
+  position: absolute;
+}
+.dropdown-menu {
+  position: absolute;
+  width: 250px;
+}
+
+.dropdown-items {
+  /*font-family: "Cairo", sans-serif;*/
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  width: 90%;
+  margin: auto;
+  line-height: 1.9em;
 }
 </style>
